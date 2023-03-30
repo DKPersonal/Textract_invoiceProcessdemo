@@ -110,47 +110,51 @@
           <av:Size x:Key="ShapeSize">200,83.2</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="740.8,1210.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence sap:VirtualizedContainerService.HintSize="740.8,1336" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <uata:TextractScope EndpointUrl="{x:Null}" AccessKeyId="AKIA4YLPDECPUGESTUIA" AccessKeySecret="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" DisplayName="Textract Scope" sap:VirtualizedContainerService.HintSize="678.4,1098.4" sap2010:WorkflowViewState.IdRef="TextractScope_3" Region="US East (N. Virginia)">
+        <uata:TextractScope EndpointUrl="{x:Null}" AccessKeyId="AKIA4YLPDECPUGESTUIA" AccessKeySecret="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" DisplayName="Textract Scope" sap:VirtualizedContainerService.HintSize="678.4,1224" sap2010:WorkflowViewState.IdRef="TextractScope_3" Region="US East (N. Virginia)">
           <uata:TextractScope.Body>
             <ActivityAction x:TypeArguments="uatca:IAwsCredentials">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="uatca:IAwsCredentials" Name="TextractScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="644.8,1012" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="644.8,1137.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uata:AnalyzeSinglePageDocumentActivity Bucket="{x:Null}" DocumentName="{x:Null}" Version="{x:Null}" AnalysisType="All" DisplayName="Analyze Single Page Document" DocumentPath="Invoice2.pdf" sap:VirtualizedContainerService.HintSize="582.4,139.2" sap2010:WorkflowViewState.IdRef="AnalyzeSinglePageDocumentActivity_2" Page="[Data]" TelemetryEnabled="False" />
-                <If Condition="[Data.HasFormData.ToString.Equals(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="582.4,720.8" sap2010:WorkflowViewState.IdRef="If_2">
+                <uata:AnalyzeSinglePageDocumentActivity Bucket="{x:Null}" DocumentName="{x:Null}" Version="{x:Null}" AnalysisType="All" DisplayName="Analyze Single Page Document" DocumentPath="D:\UiPath\InvoiceProcessing_textract\Invoice2.pdf" sap:VirtualizedContainerService.HintSize="582.4,139.2" sap2010:WorkflowViewState.IdRef="AnalyzeSinglePageDocumentActivity_2" Page="[Data]" TelemetryEnabled="False" />
+                <If Condition="[Data.HasFormData.ToString.Equals(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="582.4,846.4" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Then>
-                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="547.2,532" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[Data.HasFormData.ToString]">
+                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="547.2,657.6" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[Data.HasFormData.ToString]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,407.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,532.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence sap:VirtualizedContainerService.HintSize="449.6,295.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <Sequence sap:VirtualizedContainerService.HintSize="449.6,420.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="dataTable" />
+                              </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:OutputDataTable Text="{x:Null}" DataTable="[Data.Tables(0)]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" />
+                              <ui:OutputDataTable DataTable="[Data.Tables(0)]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" Text="[dataTable]" />
                               <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="387.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[dataTable]" />
+                              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="387.2,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[dataTable]" />
                             </Sequence>
                           </Sequence>
                         </ActivityAction>
